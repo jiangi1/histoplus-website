@@ -124,7 +124,7 @@ const SLIDES = [
     </div>
     <div class="slide-actions">
     <button class="btn btn-primary" onclick="openModal('${slide.name}')">View Details</button>
-    <a class="btn btn-secondary" href="${slide.name}_tile_map.png" target="_blank">Tile Map</a>
+    <button class="btn btn-secondary" onclick="openImageModal('${slide.name}')">Tile Map</button>
     </div>
     </div>
     </div>
@@ -199,7 +199,7 @@ const SLIDES = [
     });
     }
     
-function renderCoverageChart() {
+    function renderCoverageChart() {
     const canvas = document.getElementById('coverageChart');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -318,6 +318,23 @@ function renderCoverageChart() {
     `).join('')}
     </div>
     </div>
+    `;
+    modal.classList.add('active');
+    }
+    
+    function openImageModal(slideName) {
+    const slide = SLIDES.find(s => s.name === slideName);
+    if (!slide) return;
+    const modal = document.getElementById('slideModal');
+    const title = document.getElementById('modalTitle');
+    const body = document.getElementById('modalBody');
+    title.textContent = slide.name + ' — Tile Map';
+    body.innerHTML = `
+    <img
+    src="${slide.name}_tile_map.png"
+    alt="${slide.name} tile map"
+    style="width: 100%; height: auto; border-radius: var(--radius-lg); display: block;"
+    />
     `;
     modal.classList.add('active');
     }

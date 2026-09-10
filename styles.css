@@ -595,9 +595,9 @@
     .modal-content {
     background: white;
     border-radius: var(--radius-2xl);
-    max-width: 720px;
+    max-width: 1100px;
     width: 100%;
-    max-height: 85vh;
+    max-height: 90vh;
     overflow-y: auto;
     box-shadow: var(--shadow-2xl);
     position: relative;
@@ -632,6 +632,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10;
     }
     
     .modal-close:hover {
@@ -651,7 +652,7 @@
     }
     
     .modal-body {
-    padding: 0 var(--space-8) var(--space-8);
+    padding: 0 var(--space-6) var(--space-6);
     }
     
     .modal-stat-grid {
